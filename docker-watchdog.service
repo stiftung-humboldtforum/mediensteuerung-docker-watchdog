@@ -6,7 +6,7 @@ Requires=docker.socket
 
 [Service]
 Type=notify
-ExecStart=/usr/bin/docker-watchdog.py
+ExecStart=/opt/docker-watchdog/venv/bin/python /usr/local/bin/docker-watchdog.py
 WorkingDirectory=/home/alex/humboldt
 TimeoutStartSec=5s
 RestartSec=600s

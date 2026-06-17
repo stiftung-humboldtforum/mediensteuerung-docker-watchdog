@@ -1,0 +1,2 @@
+docker==7.1.0
+sdnotify==0.3.2

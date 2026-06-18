@@ -12,7 +12,6 @@ notifier.notify('READY=1')
 
 while True:
     notifier.notify('STATUS=Watching containers')
-    health_states = {}
 
     for container in client.containers.list():
         container_state = container.attrs['State']

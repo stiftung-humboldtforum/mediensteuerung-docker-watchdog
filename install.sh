@@ -14,7 +14,7 @@ sudo apt-get install -qq python3 python3-venv
 sudo mkdir -p /opt/docker-watchdog
 sudo python3 -m venv "$VENV"
 sudo "$VENV/bin/pip" install --no-cache-dir --upgrade pip
-sudo "$VENV/bin/pip" install --no-cache-dir -r requirements.txt
+sudo "$VENV/bin/pip" install --no-cache-dir --require-hashes -r requirements.txt
 
 ##
 # Install service

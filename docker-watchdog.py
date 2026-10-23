@@ -17,15 +17,10 @@ while True:
     for container in client.containers.list():
         container_state = container.attrs['State']
         if 'Health' in container_state:
-            health_state = container_state['Health']
-            health_states[container.id] = health_state
-
-    healthy = all([health != 'unhealthy' for health in health_states])
-
-    if not healthy:
-        message = 'Containers unhealthy. Attempting to restart...'
-        notifier.notify(f'STATUS={message}')
-        for container in client.containers.list():
-            container.restart()
+            health_state = container_state['Health']['Status']
+            if health_state == 'unhealthy':
+                message = f'Container "{container.name}" unhealthy. Restarting.'
+                notifier.notify(f'STATUS={message}')
+                container.restart()
 
     time.sleep(60)

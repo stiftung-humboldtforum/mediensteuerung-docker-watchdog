@@ -1,2 +1,2 @@
-docker==7.1.0
+docker==7.2.0
 sdnotify==0.3.2

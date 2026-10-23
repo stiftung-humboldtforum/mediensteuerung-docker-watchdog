@@ -10,7 +10,8 @@ StartLimitBurst=3
 [Service]
 Type=notify
 ExecStart=/opt/docker-watchdog/venv/bin/python /usr/local/bin/docker-watchdog.py
-WorkingDirectory=/home/alex/humboldt
+# docker 7.2 follows the active CLI context unless DOCKER_HOST is set; the watchdog must reach the local daemon.
+Environment=DOCKER_HOST=unix:///var/run/docker.sock
 TimeoutStartSec=5s
 RestartSec=600s
 Restart=always
